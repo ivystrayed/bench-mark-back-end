@@ -4,8 +4,8 @@ from django.db.models import Avg
 
 class Bench (models.Model):
     img = models.ImageField(default=None, null=True, blank=True)
-    long = models.DecimalField(max_digits=9, decimal_places=6)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
+    long = models.DecimalField(max_digits=9, decimal_places=6)
 
     def __str__(self):
         return f"bench # {self.id}: its a gud bench"
@@ -14,12 +14,12 @@ class Rating (models.Model):
     bench = models.ForeignKey(Bench, on_delete=models.CASCADE)
     view = models.IntegerField()
     seclusion = models.IntegerField()
+    squirrels = models.IntegerField()
     accesibility = models.IntegerField()
-    squirrels = models.IntegerField() 
     time_submitted = models.TimeField(default=None)
 
     def __str__ (self):
-        return f"{self.bench.id}: {self.rating}"
+        return f"{self.bench.id}"
 
 
 

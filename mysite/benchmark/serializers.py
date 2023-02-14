@@ -4,12 +4,12 @@ from .models import Bench, Rating
 class BenchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bench
-        fields = '__all__'
+        exclude = ('field1')
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating 
-        fields = '__all__'
+        exclude = ('time_submitted')
 
 class avgRatingSerializer(serializers.Serializer):
     seclusion__avg = serializers.DecimalField(max_digits =3, decimal_places=2)
