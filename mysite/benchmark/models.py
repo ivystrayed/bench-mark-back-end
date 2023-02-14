@@ -3,7 +3,7 @@ from django.db.models import Avg
 
 
 class Bench (models.Model):
-    img = models.ImageField(default=None, null=True, blank=True)
+    img = models.ImageField(default='../asets/default-bench.png')
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     long = models.DecimalField(max_digits=9, decimal_places=6)
 
@@ -16,7 +16,6 @@ class Rating (models.Model):
     seclusion = models.IntegerField()
     squirrels = models.IntegerField()
     accesibility = models.IntegerField()
-    time_submitted = models.TimeField(default=None)
 
     def __str__ (self):
         return f"{self.bench.id}"
