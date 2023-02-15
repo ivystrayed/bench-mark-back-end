@@ -3,7 +3,7 @@ from django.db.models import Avg
 
 
 class Bench (models.Model):
-    img = models.ImageField(default='../asets/default-bench.png')
+    img = models.ImageField(default='../assets/default-bench.png')
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     long = models.DecimalField(max_digits=9, decimal_places=6)
 

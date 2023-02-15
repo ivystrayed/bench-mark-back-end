@@ -20,6 +20,7 @@ class BenchViewSet(viewsets.ModelViewSet):
     def benchstats(self, request, pk=None):
         bench = self.get_object()
         queryset = Rating.objects.filter(bench = bench.id).aggregate(Avg('seclusion'), Avg('view'),Avg('accesibility'), Avg('squirrels'),)
+        queryset.update({"img" : bench.img})
         serializer = avgRatingSerializer(queryset)
         return Response(serializer.data, 200)
 

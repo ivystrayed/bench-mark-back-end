@@ -4,7 +4,7 @@ from .models import Bench, Rating
 class BenchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bench
-        fields = "__all__"
+        fields = ["long", "lat", "id"]
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,3 +17,4 @@ class avgRatingSerializer(serializers.Serializer):
     view__avg = serializers.DecimalField(max_digits =3, decimal_places=2)
     accesibility__avg = serializers.DecimalField(max_digits =3, decimal_places=2)
     squirrels__avg = serializers.DecimalField(max_digits =3, decimal_places=2)
+    img = serializers.ImageField()
